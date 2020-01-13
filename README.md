@@ -8,6 +8,8 @@ make
 
 Then `gpg --card-edit`, and so on.
 
+Default password for the card is `12345678`.
+
 ## Credits
 
 This project is largely based on these instructions:
