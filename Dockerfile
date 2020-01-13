@@ -10,6 +10,8 @@ RUN ./build.sh
 RUN sed -i s/stretch/stable/ /etc/apt/sources.list && apt update && apt install -y gpg
 RUN rm -rf /var/lib/apt/lists
 
+RUN useradd -ms /bin/bash pgpcard
+
 COPY start.sh .
 CMD ./start.sh
 
