@@ -16,5 +16,7 @@ This project is largely based [on these instructions](https://github.com/OpenSC/
 
 Additional reading:
 
+- https://github.com/OpenSC/OpenSC/wiki/OpenPGP-card
 - https://github.com/OpenSC/OpenSC/wiki/Smart-Card-Simulation
 - https://frankmorgner.github.io/vsmartcard/virtualsmartcard/README.html
+
