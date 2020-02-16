@@ -7,10 +7,10 @@ RUN apt install -y pkg-config wget default-jdk maven pcscd scdaemon opensc
 COPY build.sh .
 RUN ./build.sh
 
-RUN echo "deb http://deb.debian.org/debian testing main" > /etc/apt/sources.list && apt update && apt install -y gpg wget secure-delete hopenpgp-tools paperkey curl locales locales-all \
+RUN echo "deb http://deb.debian.org/debian testing main" > /etc/apt/sources.list && apt update && apt install -y gpg wget secure-delete hopenpgp-tools paperkey curl locales locales-all pinentry-tty \
 	&& rm -rf /var/lib/apt/lists
 
-RUN useradd -ms /bin/bash pgpcard && su pgpcard -c "mkdir /home/pgpcard/.gnupg" && chmod 700 /home/pgpcard/.gnupg
+RUN useradd -G tty -ms /bin/bash pgpcard && su pgpcard -c "mkdir /home/pgpcard/.gnupg" && chmod 700 /home/pgpcard/.gnupg
 
 COPY gpg.conf /home/pgpcard/.gnupg/
 RUN chown -R pgpcard:pgpcard /home/pgpcard/.gnupg/
