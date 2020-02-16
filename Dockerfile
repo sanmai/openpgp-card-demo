@@ -13,6 +13,8 @@ RUN echo "deb http://deb.debian.org/debian testing main" > /etc/apt/sources.list
 RUN useradd -ms /bin/bash pgpcard && su pgpcard -c "mkdir /home/pgpcard/.gnupg" && chmod 700 /home/pgpcard/.gnupg
 
 COPY gpg.conf /home/pgpcard/.gnupg/
+RUN chown -R pgpcard:pgpcard /home/pgpcard/.gnupg/
+RUN echo 'export GPG_TTY=$(tty)' | tee -a /home/pgpcard/.bashrc
 
 ENV LANG en_DK.UTF-8
 ENV LANGUAGE en_DK.UTF-8
